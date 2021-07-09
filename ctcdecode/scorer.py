@@ -101,11 +101,18 @@ class WordKenLMScorer(Scorer):
     def _get_words(self, path):
         words = set()
 
-        with open(path, 'r') as f:
+        # changed: r -> rb to read binary model!!
+        if path.split(".")[-1] == "bin": # ext
+            filemode = "rb"
+        else:
+            filemode= "r"
+
+        with open(path, filemode) as f:
             start_1_gram = False
             end_1_gram = False
 
             while not end_1_gram:
+                
                 line = f.readline().strip()
 
                 if line == '\\1-grams:':
