@@ -61,7 +61,7 @@ except FileNotFoundError:
 # SETUP
 ##################################################
 
-setup(name='ctcdecode',
+setup(name='pyctcdecode',
       version='0.0.0',
       description=DESCRIPTION,
       long_description=long_description,
